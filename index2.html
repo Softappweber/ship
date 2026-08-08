@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Collection Premium Watch</title>
+    <style>
+        /* RESET AND BASE STYLES */
+        body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+        table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+        img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+        table { border-collapse: collapse !important; }
+        body { height: 100% !important; margin: 0 !important; padding: 0 !important; width: 100% !important; background-color: #0a0b1e; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #e2e8f0; }
+
+        /* BUTTON STYLES */
+        .cta-button {
+            display: inline-block; padding: 16px 40px; background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: #ffffff !important; text-decoration: none; font-weight: 700; font-size: 18px;
+            border-radius: 50px; transition: all 0.3s ease; box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+            text-align: center; mso-padding-alt: 0; 
+        }
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(59, 130, 246, 0.4); }
+        .cta-button span { mso-text-raise: 16px; }
+
+        /* CAROUSEL STYLES */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Navigation Buttons */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            cursor: pointer;
+            font-size: 22px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            z-index: 10;
+            backdrop-filter: blur(5px);
+        }
+
+        .carousel-btn:hover {
+            background: rgba(59, 130, 246, 0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn.prev {
+            left: 10px;
+        }
+
+        .carousel-btn.next {
+            right: 10px;
+        }
+
+        /* Dots/Indicators */
+        .carousel-dots {
+            text-align: center;
+            padding: 15px 0;
+            margin: 0;
+        }
+
+        .carousel-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            margin: 0 6px;
+            background: #64748b;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .carousel-dot.active {
+            background: #8b5cf6;
+            border-color: #8b5cf6;
+            transform: scale(1.2);
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
+        }
+
+        .carousel-dot:hover {
+            background: #8b5cf6;
+            transform: scale(1.1);
+        }
+
+        /* RESPONSIVE */
+        @media screen and (max-width: 600px) {
+            .container { width: 100% !important; }
+            .mobile-stack { display: block !important; width: 100% !important; }
+            .mobile-padding { padding: 20px 20px !important; }
+            .cta-button { width: 100% !important; box-sizing: border-box; }
+            
+            .carousel-slide img {
+                height: 300px;
+            }
+            
+            .carousel-btn {
+                padding: 10px 14px;
+                font-size: 18px;
+            }
+        }
+
+        /* Auto-play pause on hover */
+        .carousel-container:hover .carousel-slides {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body style="background-color: #0a0b1e; margin: 0; padding: 0;">
+
+    <!-- OUTER WRAPPER -->
+    <table border="0" cellpadding="0" cellspacing="0" width="100%" style="background-color: #0a0b1e;">
+        <tr>
+            <td align="center" style="padding: 40px 0;">
+                
+                <!-- MAIN CONTAINER -->
+                <table border="0" cellpadding="0" cellspacing="0" width="600" class="container" style="background-color: #13162e; border-radius: 16px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); max-width: 100%;">
+                    
+                    <!-- HEADER -->
+                    <tr>
+                        <td align="center" style="padding: 30px 20px; border-bottom: 1px solid #1e2140;">
+                            <h1 style="margin: 0; color: #ffffff; font-size: 28px; letter-spacing: 1px;">UK <span style="color: #8b5cf6;">Collection</span></h1>
+                            <p style="margin: 5px 0 0; color: #94a3b8; font-size: 14px;">Premium Timepieces</p>
+                        </td>
+                    </tr>
+
+                    <!-- CAROUSEL SECTION -->
+                    <tr>
+                        <td align="center" style="padding: 20px;">
+                            <div class="carousel-container" id="carousel">
+                                <div class="carousel-slides" id="slides">
+                                    <!-- SLIDE 1 -->
+                                    <div class="carousel-slide">
+                                        <img src="https://softappweber.github.io/ship/watch1.jpg" alt="UK Collection Watch - Front View">
+                                    </div>
+                                    <!-- SLIDE 2 -->
+                                    <div class="carousel-slide">
+                                        <img src="https://softappweber.github.io/ship/watch2.jpg" alt="UK Collection Watch - Side View">
+                                    </div>
+                                    <!-- SLIDE 3 -->
+                                    <div class="carousel-slide">
+                                        <img src="https://softappweber.github.io/ship/watch3.jpg" alt="UK Collection Watch - Wrist View">
+                                    </div>
+                                </div>
+
+                                <!-- Navigation Buttons -->
+                                <button class="carousel-btn prev" onclick="changeSlide(-1)">❮</button>
+                                <button class="carousel-btn next" onclick="changeSlide(1)">❯</button>
+                            </div>
+
+                            <!-- Dots/Indicators -->
+                            <div class="carousel-dots" id="dots">
+                                <span class="carousel-dot active" onclick="currentSlide(0)"></span>
+                                <span class="carousel-dot" onclick="currentSlide(1)"></span>
+                                <span class="carousel-dot" onclick="currentSlide(2)"></span>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- OFFER SECTION -->
+                    <tr>
+                        <td align="center" class="mobile-padding" style="padding: 20px 40px;">
+                            <h2 style="color: #ffffff; font-size: 26px; margin: 0 0 10px 0;">Sleek. Minimalist. <span style="color: #10b981;">Elegant.</span></h2>
+                            <p style="color: #cbd5e1; font-size: 16px; line-height: 1.6; margin: 0 0 20px 0;">
+                                Elevate your daily style with our premium high-gloss black stainless steel watch. 
+                                Quartz movement, scratch-resistant glass, and a polished finish that turns heads.
+                            </p>
+                            
+                            <!-- PRICING -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="center" style="padding: 10px 0;">
+                                        <span style="color: #64748b; font-size: 18px; text-decoration: line-through; margin-right: 15px;">₹999</span>
+                                        <span style="color: #ffffff; font-size: 32px; font-weight: 800;">₹399</span>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <p style="color: #f59e0b; font-size: 14px; font-weight: 600; margin: 0 0 25px 0;">🔥 Offer valid for 24 hours only!</p>
+                        </td>
+                    </tr>
+
+                    <!-- CTA BUTTON -->
+                    <tr>
+                        <td align="center" class="mobile-padding" style="padding: 0 40px 30px 40px;">
+                            <a href="https://softappweber.github.io/sushantcoder/" class="cta-button" target="_blank">
+                                <span>⚡ BUY NOW - ₹399</span>
+                            </a>
+                            <p style="color: #64748b; font-size: 12px; margin-top: 15px;">✓ Cash on Delivery &bull; ✓ Free Shipping</p>
+                        </td>
+                    </tr>
+
+                    <!-- FOOTER -->
+                    <tr>
+                        <td align="center" style="padding: 25px; background-color: #0d1229; border-top: 1px solid #1e2140;">
+                            <p style="color: #64748b; font-size: 12px; margin: 0;">
+                                You are receiving this email because you signed up for UK Collection updates.<br>
+                                Need help? Contact us at <a href="mailto:support@ukcollection.com" style="color: #8b5cf6; text-decoration: none;">support@ukcollection.com</a>
+                            </p>
+                        </td>
+                    </tr>
+
+                </table>
+                <!-- END MAIN CONTAINER -->
+
+            </td>
+        </tr>
+    </table>
+
+    <!-- CAROUSEL JAVASCRIPT -->
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const totalSlides = slides.length;
+        let autoPlayInterval;
+
+        // Function to change slide
+        function changeSlide(direction) {
+            currentIndex = (currentIndex + direction + totalSlides) % totalSlides;
+            updateCarousel();
+            resetAutoPlay();
+        }
+
+        // Function to go to specific slide
+        function currentSlide(index) {
+            currentIndex = index;
+            updateCarousel();
+            resetAutoPlay();
+        }
+
+        // Function to update carousel position and dots
+        function updateCarousel() {
+            const slidesContainer = document.getElementById('slides');
+            slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+
+        // Auto-play function
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                changeSlide(1);
+            }, 4000); // Change slide every 4 seconds
+        }
+
+        function resetAutoPlay() {
+            clearInterval(autoPlayInterval);
+            startAutoPlay();
+        }
+
+        // Pause auto-play on hover
+        const carouselContainer = document.getElementById('carousel');
+        carouselContainer.addEventListener('mouseenter', () => {
+            clearInterval(autoPlayInterval);
+        });
+        
+        carouselContainer.addEventListener('mouseleave', () => {
+            startAutoPlay();
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+
+        // Touch/swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        carouselContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        carouselContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const difference = touchStartX - touchEndX;
+            
+            if (Math.abs(difference) > swipeThreshold) {
+                if (difference > 0) {
+                    changeSlide(1); // Swipe left -> next
+                } else {
+                    changeSlide(-1); // Swipe right -> previous
+                }
+            }
+        }
+
+        // Start auto-play when page loads
+        startAutoPlay();
+    </script>
+</body>
+</html>
