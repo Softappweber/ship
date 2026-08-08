@@ -327,5 +327,38 @@
         // Start auto-play when page loads
         startAutoPlay();
     </script>
+<!-- PASTE THIS ON YOUR WEBSITE for tracking visits -->
+<script>
+(function() {
+  const PAGE_ID = 'https://softappweber.github.io/ship';  // ← Change this to identify your page
+  const EMAIL = 'sushantkadam75@gmail.com';   // ← YOUR EMAIL for notifications
+  
+  const data = {
+    page: PAGE_ID,
+    email: EMAIL,
+    url: window.location.href,
+    referrer: document.referrer || 'direct',
+    time: new Date().toISOString()
+  };
+
+  fetch('https://script.google.com/macros/s/AKfycbx-T_8_YL1pmc7U8DjUXOy2JwFnYvVA69_B1iels11CDNc9vhH6lVA-EnaUcnKHSleB/exec', {
+    method: 'POST',
+    mode: 'no-cors', // This prevents CORS errors
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data)
+  }).catch(e => console.warn('Tracker:', e));
+  
+  // Optional: Also track when user leaves the page (more accurate)
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      // User left the page, maybe track time spent
+      console.log('Page visit ended');
+    }
+  });
+})();
+</script>
+    
 </body>
 </html>
