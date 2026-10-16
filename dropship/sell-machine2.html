@@ -683,7 +683,8 @@ function renderVideo() {
   grid.innerHTML = `<div class="media-item" style="grid-column: span 2; aspect-ratio: 16/9;"><video src="${state.product.video.data}" controls muted></video><button class="remove" onclick="removeVideo()">×</button><span class="badge">VIDEO</span></div>`;
 }
 function removeVideo() { state.product.video = null; renderVideo(); }
-function saveProductDetails() {
+
+  function saveProductDetails() {
   state.product.title = document.getElementById('pTitle').value.trim();
   state.product.price = document.getElementById('pPrice').value.trim();
   state.product.cost = document.getElementById('pCost').value.trim();
@@ -692,6 +693,23 @@ function saveProductDetails() {
   state.product.desc = document.getElementById('pDesc').value.trim();
   state.product.benefits = document.getElementById('pBenefits').value.trim();
   localStorage.setItem('solods_product', JSON.stringify(state.product));
+
+  // AI copy button (adds only once)
+  if(!document.getElementById('aiCopyBtn')){
+    const btn = document.createElement('button');
+    btn.id = 'aiCopyBtn';
+    btn.className = 'btn btn-secondary';
+    btn.style.marginTop = '10px';
+    btn.textContent = '✨ Shorten Description with AI';
+    btn.onclick = () => {
+      const desc = document.getElementById('pDesc').value;
+      window.open('https://app.copyspell.ai/', '_blank');
+      navigator.clipboard.writeText(desc);
+      toast('Long text copied! Paste it into CopySpell.');
+    };
+    document.getElementById('pDesc').parentNode.appendChild(btn);
+  }
+
   toast('Product details saved!');
   renderDashboard();
 }
