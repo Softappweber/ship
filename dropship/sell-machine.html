@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SoloDS Dropshipping Marketing Studio PRO</title>
+<style>
+:root {
+  --bg: #f5f7fb;
+  --surface: #ffffff;
+  --surface-2: #f0f2f7;
+  --text: #1a1d29;
+  --text-2: #6b7280;
+  --border: #e5e7eb;
+  --accent: #6366f1;
+  --accent-2: #8b5cf6;
+  --accent-grad: linear-gradient(135deg, #6366f1, #8b5cf6);
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --shadow: 0 4px 20px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 40px rgba(0,0,0,0.1);
+  --radius: 14px;
+  --radius-sm: 8px;
+}
+
+[data-theme="dark"] {
+  --bg: #0b0d14;
+  --surface: #161923;
+  --surface-2: #1e2230;
+  --text: #e8eaf0;
+  --text-2: #9ca3af;
+  --border: #2a2f3f;
+  --shadow: 0 4px 20px rgba(0,0,0,0.3);
+  --shadow-lg: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+  min-height: 100vh;
+}
+
+/* HEADER */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--surface) 85%, transparent);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: -0.3px;
+}
+
+.logo-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--accent-grad);
+  display: grid;
+  place-items: center;
+  color: white;
+  font-size: 16px;
+  box-shadow: 0 4px 12px rgba(99,102,241,0.3);
+}
+
+.header-actions { display: flex; gap: 8px; align-items: center; }
+
+.icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  transition: all 0.2s;
+}
+
+.icon-btn:hover { background: var(--surface-2); transform: translateY(-1px); }
+
+/* LAYOUT */
+.layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: calc(100vh - 67px);
+}
+
+.sidebar {
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+  padding: 16px 12px;
+  position: sticky;
+  top: 67px;
+  height: calc(100vh - 67px);
+  overflow-y: auto;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-2);
+  transition: all 0.15s;
+  margin-bottom: 2px;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+
+.nav-item:hover { background: var(--surface-2); color: var(--text); }
+
+.nav-item.active {
+  background: var(--accent-grad);
+  color: white;
+  box-shadow: 0 4px 12px rgba(99,102,241,0.25);
+}
+
+.nav-item .ico { font-size: 16px; width: 20px; text-align: center; }
+
+.main { padding: 24px; max-width: 1200px; width: 100%; }
+
+.view { display: none; animation: fadeIn 0.3s ease; }
+.view.active { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* CARDS */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow);
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-sub {
+  font-size: 13px;
+  color: var(--text-2);
+  margin-bottom: 16px;
+}
+
+.page-title {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+}
+
+.page-desc {
+  color: var(--text-2);
+  font-size: 14px;
+  margin-bottom: 22px;
+}
+
+/* FORMS */
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+
+input[type="text"],
+input[type="number"],
+input[type="url"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 14px;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.12);
+}
+
+textarea { resize: vertical; min-height: 80px; }
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.form-group { margin-bottom: 14px; }
+
+/* BUTTONS */
+.btn {
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: inherit;
+}
+
+.btn-primary {
+  background: var(--accent-grad);
+  color: white;
+  box-shadow: 0 4px 12px rgba(99,102,241,0.3);
+}
+
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(99,102,241,0.4); }
+
+.btn-secondary {
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover { background: var(--border); }
+
+.btn-success { background: var(--success); color: white; }
+.btn-danger { background: var(--danger); color: white; }
+.btn-sm { padding: 7px 12px; font-size: 13px; }
+
+.btn-group { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* UPLOAD */
+.upload-zone {
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: var(--surface-2);
+}
+
+.upload-zone:hover {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 5%, var(--surface-2));
+}
+
+.upload-zone.dragover {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface-2));
+}
+
+.upload-zone .ico { font-size: 32px; margin-bottom: 8px; }
+.upload-zone .txt { font-size: 14px; font-weight: 600; }
+.upload-zone .hint { font-size: 12px; color: var(--text-2); margin-top: 4px; }
+
+/* MEDIA PREVIEW */
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.media-item {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+}
+
+.media-item img, .media-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.media-item .remove {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--danger);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 12px;
+  display: grid;
+  place-items: center;
+}
+
+.media-item .badge {
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* OUTPUT */
+.output-box {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  font-size: 12px;
+  white-space: pre-wrap;
+  word-break: break-all;
+  max-height: 400px;
+  overflow-y: auto;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+/* SUPPLIER DIRECTORY */
+.supplier-search {
+  margin-bottom: 16px;
+}
+
+.supplier-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.supplier-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  transition: all 0.2s;
+}
+
+.supplier-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: var(--accent);
+}
+
+.supplier-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.supplier-card p {
+  font-size: 12px;
+  color: var(--text-2);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.supplier-tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.tag-wholesale { background: #dbeafe; color: #1e40af; }
+.tag-dropship { background: #dcfce7; color: #166534; }
+.tag-pod { background: #fef3c7; color: #92400e; }
+.tag-b2b { background: #fce7f3; color: #9d174d; }
+
+[data-theme="dark"] .tag-wholesale { background: #1e3a8a; color: #bfdbfe; }
+[data-theme="dark"] .tag-dropship { background: #14532d; color: #bbf7d0; }
+[data-theme="dark"] .tag-pod { background: #78350f; color: #fde68a; }
+[data-theme="dark"] .tag-b2b { background: #831843; color: #fbcfe8; }
+
+.supplier-link {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.supplier-link:hover { text-decoration: underline; }
+
+/* CALCULATOR */
+.calc-result {
+  background: var(--accent-grad);
+  color: white;
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.calc-result .big {
+  font-size: 36px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.calc-result .label {
+  font-size: 13px;
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+
+.calc-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.calc-stat {
+  background: rgba(255,255,255,0.15);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+}
+
+.calc-stat .v { font-size: 18px; font-weight: 700; }
+.calc-stat .l { font-size: 11px; opacity: 0.85; }
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: var(--text);
+  color: var(--bg);
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.3s;
+  z-index: 999;
+  max-width: 90vw;
+}
+
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* TABS */
+.tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 16px;
+  overflow-x: auto;
+}
+
+.tab {
+  padding: 10px 16px;
+  border: none;
+  background: none;
+  color: var(--text-2);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  font-family: inherit;
+}
+
+.tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.tab-content { display: none; }
+.tab-content.active { display: block; animation: fadeIn 0.2s; }
+
+/* EMPTY STATE */
+.empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-2);
+}
+
+.empty .ico { font-size: 48px; margin-bottom: 12px; opacity: 0.5; }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    height: auto;
+    width: 100%;
+    display: flex;
+    overflow-x: auto;
+    padding: 8px;
+    border-right: none;
+    border-top: 1px solid var(--border);
+    z-index: 100;
+  }
+  .nav-item {
+    flex-direction: column;
+    font-size: 10px;
+    padding: 8px 10px;
+    gap: 3px;
+    min-width: 64px;
+    text-align: center;
+    margin: 0;
+  }
+  .nav-item .ico { font-size: 18px; }
+  .main { padding: 16px; padding-bottom: 90px; }
+  .form-row { grid-template-columns: 1fr; }
+  .page-title { font-size: 22px; }
+  .calc-stats { grid-template-columns: 1fr; }
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-2); }
+
+/* UTILITY */
+.flex { display: flex; }
+.flex-between { display: flex; justify-content: space-between; align-items: center; }
+.gap-8 { gap: 8px; }
+.mt-8 { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mb-8 { margin-bottom: 8px; }
+.mb-16 { margin-bottom: 16px; }
+.hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">
+    <div class="logo-mark">⚡</div>
+    <div>SoloDS Studio <span style="color:var(--accent)">PRO</span></div>
+  </div>
+  <div class="header-actions">
+    <button class="icon-btn" onclick="toggleTheme()" title="Toggle theme" id="themeBtn">🌙</button>
+    <button class="icon-btn" onclick="saveDraft()" title="Save draft">💾</button>
+  </div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <button class="nav-item active" data-view="dashboard"><span class="ico">🏠</span> Dashboard</button>
+    <button class="nav-item" data-view="import"><span class="ico">📥</span> Import</button>
+    <button class="nav-item" data-view="landing"><span class="ico">🎨</span> Landing</button>
+    <button class="nav-item" data-view="whatsapp"><span class="ico">💬</span> WhatsApp</button>
+    <button class="nav-item" data-view="email"><span class="ico">✉️</span> Email</button>
+    <button class="nav-item" data-view="suppliers"><span class="ico">🏭</span> Suppliers</button>
+    <button class="nav-item" data-view="calculator"><span class="ico">🧮</span> Calculator</button>
+    <button class="nav-item" data-view="library"><span class="ico">📚</span> Library</button>
+  </aside>
+
+  <main class="main">
+
+    <!-- DASHBOARD -->
+    <section class="view active" id="view-dashboard">
+      <h1 class="page-title">Dashboard</h1>
+      <p class="page-desc">Your dropshipping command center. Import products, generate marketing assets, publish.</p>
+
+      <div class="card">
+        <div class="card-title">🚀 Quick Start</div>
+        <div class="card-sub">Follow these steps in order. Each step takes 1-2 minutes.</div>
+        <ol style="padding-left: 20px; font-size: 14px; line-height: 2;">
+          <li>Go to <strong>Import</strong> → paste DeoDap URL → fetch details</li>
+          <li>Upload product images + MP4 video</li>
+          <li>Go to <strong>Landing</strong> → generate HTML → download → upload to GitHub Pages</li>
+          <li>Copy the published URL → paste into <strong>WhatsApp</strong> and <strong>Email</strong> generators</li>
+          <li>Send ads → customers click Buy Now → land on your UPI page → pay</li>
+        </ol>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📊 Current Draft</div>
+        <div id="dashDraft">No product loaded yet.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💾 Data Management</div>
+        <div class="btn-group">
+          <button class="btn btn-secondary btn-sm" onclick="saveDraft()">💾 Save Draft</button>
+          <button class="btn btn-secondary btn-sm" onclick="loadDraft()">📂 Load Draft</button>
+          <button class="btn btn-secondary btn-sm" onclick="exportJSON()">⬇️ Export JSON</button>
+          <button class="btn btn-secondary btn-sm" onclick="document.getElementById('importJSON').click()">⬆️ Import JSON</button>
+          <input type="file" id="importJSON" accept=".json" class="hidden" onchange="importJSON(event)">
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPORT -->
+    <section class="view" id="view-import">
+      <h1 class="page-title">Import Product</h1>
+      <p class="page-desc">Fetch product details from DeoDap, or enter manually. Images and video are uploaded by you.</p>
+
+      <div class="card">
+        <div class="card-title">🔗 Fetch from DeoDap</div>
+        <div class="card-sub">Paste a DeoDap product URL. The tool will try to fetch title, price, and description. If it fails, enter manually below.</div>
+        <div class="form-group">
+          <label>DeoDap Product URL</label>
+          <input type="url" id="deodapUrl" placeholder="https://deodap.in/products/...">
+        </div>
+        <button class="btn btn-primary" onclick="fetchDeoDap()">🔍 Fetch Details</button>
+        <div id="fetchStatus" class="mt-8" style="font-size:13px;color:var(--text-2);"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📝 Product Details</div>
+        <div class="card-sub">These fields power all generators.</div>
+
+        <div class="form-group">
+          <label>Product Title</label>
+          <input type="text" id="pTitle" placeholder="e.g., 600ml Water Bottle with Pill Organizer">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Selling Price (₹)</label>
+            <input type="number" id="pPrice" placeholder="300" min="0">
+          </div>
+          <div class="form-group">
+            <label>Cost Price (₹)</label>
+            <input type="number" id="pCost" placeholder="120" min="0">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Shipping Cost (₹)</label>
+            <input type="number" id="pShipping" placeholder="40" min="0">
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <input type="text" id="pCategory" placeholder="Home & Kitchen">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Description</label>
+          <textarea id="pDesc" placeholder="Paste product description from supplier..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>Key Benefits (one per line)</label>
+          <textarea id="pBenefits" placeholder="Leak-proof design&#10;Built-in pill organizer&#10;BPA-free material&#10;Perfect for travel & gym"></textarea>
+        </div>
+
+        <button class="btn btn-primary" onclick="saveProductDetails()">💾 Save Product Details</button>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🖼️ Product Images</div>
+        <div class="card-sub">Upload 2-5 images. First image = main. Drag not required; order is upload order.</div>
+        <div class="upload-zone" id="imgZone">
+          <div class="ico">🖼️</div>
+          <div class="txt">Click or drop images here</div>
+          <div class="hint">JPG, PNG, WebP · Max 2MB each recommended</div>
+          <input type="file" id="imgInput" accept="image/*" multiple class="hidden">
+        </div>
+        <div class="media-grid" id="imgGrid"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🎥 Product Video (MP4)</div>
+        <div class="card-sub">Upload a short 3-5 second video. It will be embedded in the landing page.</div>
+        <div class="upload-zone" id="vidZone">
+          <div class="ico">🎥</div>
+          <div class="txt">Click or drop MP4 video here</div>
+          <div class="hint">MP4 · 1-3MB recommended · 3-5 seconds</div>
+          <input type="file" id="vidInput" accept="video/mp4" class="hidden">
+        </div>
+        <div class="media-grid" id="vidGrid"></div>
+      </div>
+    </section>
+
+    <!-- LANDING PAGE -->
+    <section class="view" id="view-landing">
+      <h1 class="page-title">Landing Page Generator</h1>
+      <p class="page-desc">Generate a high-converting mobile-first product page. Download the HTML and upload to GitHub Pages.</p>
+
+      <div class="card">
+        <div class="card-title">⚙️ Options</div>
+        <div class="form-group">
+          <label>Published Page URL (after you upload to GitHub)</label>
+          <input type="url" id="landingUrl" placeholder="https://yourname.github.io/product-page/">
+        </div>
+        <div class="form-group">
+          <label>Urgency Text (optional)</label>
+          <input type="text" id="landingUrgency" placeholder="Only 12 left in stock" value="Only 12 left in stock">
+        </div>
+        <div class="form-group">
+          <label>Delivery Promise</label>
+          <input type="text" id="landingDelivery" placeholder="Delivered in 3-5 days across India" value="Delivered in 3-5 days across India">
+        </div>
+        <button class="btn btn-primary" onclick="generateLanding()">🎨 Generate Landing Page HTML</button>
+      </div>
+
+      <div class="card" id="landingOutputCard" style="display:none;">
+        <div class="card-title">✅ Generated HTML</div>
+        <div class="card-sub">Copy all code, save as <code>index.html</code>, upload to GitHub Pages.</div>
+        <div class="btn-group mb-16">
+          <button class="btn btn-secondary btn-sm" onclick="copyOutput('landingOutput')">📋 Copy HTML</button>
+          <button class="btn btn-secondary btn-sm" onclick="downloadOutput('landingOutput', 'index.html')">⬇️ Download index.html</button>
+          <button class="btn btn-secondary btn-sm" onclick="previewOutput('landingOutput')">👁️ Preview</button>
+        </div>
+        <div class="output-box" id="landingOutput"></div>
+      </div>
+    </section>
+
+    <!-- WHATSAPP -->
+    <section class="view" id="view-whatsapp">
+      <h1 class="page-title">WhatsApp Ad Generator</h1>
+      <p class="page-desc">Generate 3 ad variations using AIDA, PAS, and FAB frameworks. Copy, attach image, send.</p>
+
+      <div class="card">
+        <div class="card-title">⚙️ Options</div>
+        <div class="form-group">
+          <label>Your Landing Page URL</label>
+          <input type="url" id="waUrl" placeholder="https://yourname.github.io/product-page/">
+        </div>
+        <div class="form-group">
+          <label>Your UPI Payment Page URL</label>
+          <input type="url" id="waUpi" value="https://softappweber.github.io/sushantcoder/">
+        </div>
+        <button class="btn btn-primary" onclick="generateWhatsApp()">💬 Generate WhatsApp Ads</button>
+      </div>
+
+      <div id="waOutputs"></div>
+    </section>
+
+    <!-- EMAIL -->
+    <section class="view" id="view-email">
+      <h1 class="page-title">Email Generator</h1>
+      <p class="page-desc">Generate responsive HTML emails. Copy and send via your email automation engine.</p>
+
+      <div class="card">
+        <div class="card-title">⚙️ Options</div>
+        <div class="form-group">
+          <label>Landing Page URL</label>
+          <input type="url" id="emUrl" placeholder="https://yourname.github.io/product-page/">
+        </div>
+        <div class="form-group">
+          <label>From Name</label>
+          <input type="text" id="emFrom" placeholder="Sushant" value="Sushant">
+        </div>
+        <button class="btn btn-primary" onclick="generateEmail()">✉️ Generate Email HTML</button>
+      </div>
+
+      <div class="card" id="emailOutputCard" style="display:none;">
+        <div class="card-title">✅ Generated Email</div>
+        <div class="btn-group mb-16">
+          <button class="btn btn-secondary btn-sm" onclick="copyOutput('emailOutput')">📋 Copy HTML</button>
+          <button class="btn btn-secondary btn-sm" onclick="downloadOutput('emailOutput', 'email.html')">⬇️ Download</button>
+          <button class="btn btn-secondary btn-sm" onclick="previewOutput('emailOutput')">👁️ Preview</button>
+        </div>
+        <div class="output-box" id="emailOutput"></div>
+      </div>
+    </section>
+
+    <!-- SUPPLIERS -->
+    <section class="view" id="view-suppliers">
+      <h1 class="page-title">Indian Supplier Directory</h1>
+      <p class="page-desc">20+ verified wholesale, dropshipping, and print-on-demand suppliers in India.</p>
+
+      <div class="card">
+        <input type="text" class="supplier-search" id="supplierSearch" placeholder="🔍 Search suppliers by name or category..." oninput="filterSuppliers()">
+        <div class="supplier-grid" id="supplierGrid"></div>
+      </div>
+    </section>
+
+    <!-- CALCULATOR -->
+    <section class="view" id="view-calculator">
+      <h1 class="page-title">Profit Calculator</h1>
+      <p class="page-desc">Know your margins before you sell. Never lose money on an order.</p>
+
+      <div class="card">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Selling Price (₹)</label>
+            <input type="number" id="calcPrice" value="300" oninput="calcProfit()">
+          </div>
+          <div class="form-group">
+            <label>Cost Price (₹)</label>
+            <input type="number" id="calcCost" value="120" oninput="calcProfit()">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Shipping (₹)</label>
+            <input type="number" id="calcShipping" value="40" oninput="calcProfit()">
+          </div>
+          <div class="form-group">
+            <label>Packaging (₹)</label>
+            <input type="number" id="calcPackaging" value="10" oninput="calcProfit()">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Ad/Marketing Cost per Order (₹)</label>
+            <input type="number" id="calcAd" value="0" oninput="calcProfit()">
+          </div>
+          <div class="form-group">
+            <label>Daily Orders Target</label>
+            <input type="number" id="calcOrders" value="10" oninput="calcProfit()">
+          </div>
+        </div>
+
+        <div class="calc-result">
+          <div class="label">Profit Per Order</div>
+          <div class="big" id="calcPerOrder">₹130</div>
+          <div class="calc-stats">
+            <div class="calc-stat">
+              <div class="v" id="calcDaily">₹1,300</div>
+              <div class="l">Daily Profit</div>
+            </div>
+            <div class="calc-stat">
+              <div class="v" id="calcMonthly">₹39,000</div>
+              <div class="l">Monthly Profit</div>
+            </div>
+            <div class="calc-stat">
+              <div class="v" id="calcMargin">43%</div>
+              <div class="l">Margin</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIBRARY -->
+    <section class="view" id="view-library">
+      <h1 class="page-title">Product Library</h1>
+      <p class="page-desc">Saved products. Click to load into the editor.</p>
+      <div id="libraryList"><div class="empty"><div class="ico">📚</div><div>No products saved yet.</div></div></div>
+    </section>
+
+  </main>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ===== STATE =====
+const state = {
+  product: {
+    title: '', price: '', cost: '', shipping: '', category: '',
+    desc: '', benefits: '', images: [], video: null
+  },
+  landingUrl: '', waUrl: '', waUpi: 'https://softappweber.github.io/sushantcoder/', emUrl: '', emFrom: 'Sushant'
+};
+
+// ===== NAVIGATION =====
+document.querySelectorAll('.nav-item').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.nav-item').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('view-' + btn.dataset.view).classList.add('active');
+    window.scrollTo(0, 0);
+    if (btn.dataset.view === 'library') renderLibrary();
+    if (btn.dataset.view === 'dashboard') renderDashboard();
+  });
+});
+
+// ===== THEME =====
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.getElementById('themeBtn').textContent = isDark ? '🌙' : '☀️';
+  localStorage.setItem('solods_theme', isDark ? 'light' : 'dark');
+}
+
+(function initTheme() {
+  const saved = localStorage.getItem('solods_theme');
+  if (saved === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.getElementById('themeBtn').textContent = '☀️';
+  }
+})();
+
+// ===== TOAST =====
+function toast(msg, duration = 2500) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(() => t.classList.remove('show'), duration);
+}
+
+// ===== DEODAP FETCH =====
+async function fetchDeoDap() {
+  const url = document.getElementById('deodapUrl').value.trim();
+  const status = document.getElementById('fetchStatus');
+  if (!url) { toast('Please paste a DeoDap URL first'); return; }
+
+  status.textContent = '⏳ Fetching via proxy...';
+
+  // Try multiple CORS proxies in order
+  const proxies = [
+    u => 'https://r.jina.ai/' + u,
+    u => 'https://api.allorigins.win/raw?url=' + encodeURIComponent(u),
+    u => 'https://corsproxy.io/?' + encodeURIComponent(u)
+  ];
+
+  let html = null;
+  for (const p of proxies) {
+    try {
+      const res = await fetch(p(url), { headers: { 'Accept': 'text/html,application/xhtml+xml' } });
+      if (res.ok) {
+        html = await res.text();
+        if (html && html.length > 500) break;
+      }
+    } catch (e) { console.warn('Proxy failed:', e); }
+  }
+
+  if (!html) {
+    status.innerHTML = '❌ <strong>Fetch failed.</strong> All proxies blocked or rate-limited. Please fill fields manually below.';
+    toast('Fetch failed — enter details manually');
+    return;
+  }
+
+  try {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+
+    // Title
+    let title = doc.querySelector('meta[property="og:title"]')?.content
+      || doc.querySelector('h1')?.textContent?.trim()
+      || doc.querySelector('title')?.textContent?.trim()
+      || '';
+
+    // Description
+    let desc = doc.querySelector('meta[property="og:description"]')?.content
+      || doc.querySelector('meta[name="description"]')?.content
+      || doc.querySelector('.product-description')?.textContent?.trim()
+      || '';
+
+    // Price — look for common Shopify patterns
+    let price = '';
+    const priceMeta = doc.querySelector('meta[property="product:price:amount"]')?.content
+      || doc.querySelector('meta[property="og:price:amount"]')?.content;
+    if (priceMeta) price = priceMeta.replace(/[^0-9.]/g, '');
+
+    if (!price) {
+      const priceEl = doc.querySelector('[class*="price"]');
+      if (priceEl) {
+        const m = priceEl.textContent.match(/[\d,]+/);
+        if (m) price = m[0].replace(/,/g, '');
+      }
+    }
+
+    // Fill fields
+    if (title) document.getElementById('pTitle').value = title.replace(/\s*[–|-]\s*DeoDap.*$/i, '').trim();
+    if (desc) document.getElementById('pDesc').value = desc.trim();
+    if (price) document.getElementById('pPrice').value = price;
+
+    // Auto-generate benefits if desc exists
+    if (desc && desc.length > 40) {
+      const sentences = desc.split(/[.!?]/).map(s => s.trim()).filter(s => s.length > 15 && s.length < 120);
+      if (sentences.length >= 2) {
+        document.getElementById('pBenefits').value = sentences.slice(0, 5).join('\n');
+      }
+    }
+
+    status.innerHTML = '✅ <strong>Fetched!</strong> Review the fields below and adjust if needed.';
+    toast('Product details fetched!');
+  } catch (e) {
+    console.error(e);
+    status.innerHTML = '❌ Parse error. Please fill fields manually.';
+  }
+}
+
+// ===== IMAGE UPLOAD =====
+const imgZone = document.getElementById('imgZone');
+const imgInput = document.getElementById('imgInput');
+
+imgZone.addEventListener('click', () => imgInput.click());
+imgZone.addEventListener('dragover', e => { e.preventDefault(); imgZone.classList.add('dragover'); });
+imgZone.addEventListener('dragleave', () => imgZone.classList.remove('dragover'));
+imgZone.addEventListener('drop', e => {
+  e.preventDefault();
+  imgZone.classList.remove('dragover');
+  handleImages(e.dataTransfer.files);
+});
+imgInput.addEventListener('change', e => handleImages(e.target.files));
+
+function handleImages(files) {
+  Array.from(files).forEach(file => {
+    if (!file.type.startsWith('image/')) return;
+    const reader = new FileReader();
+    reader.onload = e => {
+      state.product.images.push({ name: file.name, data: e.target.result });
+      renderImages();
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function renderImages() {
+  const grid = document.getElementById('imgGrid');
+  grid.innerHTML = state.product.images.map((img, i) => `
+    <div class="media-item">
+      <img src="${img.data}" alt="">
+      <button class="remove" onclick="removeImage(${i})">×</button>
+      ${i === 0 ? '<span class="badge">MAIN</span>' : ''}
+    </div>
+  `).join('');
+}
+
+function removeImage(i) {
+  state.product.images.splice(i, 1);
+  renderImages();
+}
+
+// ===== VIDEO UPLOAD =====
+const vidZone = document.getElementById('vidZone');
+const vidInput = document.getElementById('vidInput');
+
+vidZone.addEventListener('click', () => vidInput.click());
+vidZone.addEventListener('dragover', e => { e.preventDefault(); vidZone.classList.add('dragover'); });
+vidZone.addEventListener('dragleave', () => vidZone.classList.remove('dragover'));
+vidZone.addEventListener('drop', e => {
+  e.preventDefault();
+  vidZone.classList.remove('dragover');
+  handleVideo(e.dataTransfer.files[0]);
+});
+vidInput.addEventListener('change', e => handleVideo(e.target.files[0]));
+
+function handleVideo(file) {
+  if (!file || !file.type.startsWith('video/')) { toast('Please upload an MP4 video'); return; }
+  if (file.size > 5 * 1024 * 1024) { toast('Video too large — keep under 5MB'); return; }
+  const reader = new FileReader();
+  reader.onload = e => {
+    state.product.video = { name: file.name, data: e.target.result };
+    renderVideo();
+    toast('Video uploaded!');
+  };
+  reader.readAsDataURL(file);
+}
+
+function renderVideo() {
+  const grid = document.getElementById('vidGrid');
+  if (!state.product.video) { grid.innerHTML = ''; return; }
+  grid.innerHTML = `
+    <div class="media-item" style="grid-column: span 2; aspect-ratio: 16/9;">
+      <video src="${state.product.video.data}" controls muted></video>
+      <button class="remove" onclick="removeVideo()">×</button>
+      <span class="badge">VIDEO</span>
+    </div>
+  `;
+}
+
+function removeVideo() {
+  state.product.video = null;
+  renderVideo();
+}
+
+// ===== SAVE PRODUCT DETAILS =====
+function saveProductDetails() {
+  state.product.title = document.getElementById('pTitle').value.trim();
+  state.product.price = document.getElementById('pPrice').value.trim();
+  state.product.cost = document.getElementById('pCost').value.trim();
+  state.product.shipping = document.getElementById('pShipping').value.trim();
+  state.product.category = document.getElementById('pCategory').value.trim();
+  state.product.desc = document.getElementById('pDesc').value.trim();
+  state.product.benefits = document.getElementById('pBenefits').value.trim();
+  localStorage.setItem('solods_product', JSON.stringify(state.product));
+  toast('Product details saved!');
+  renderDashboard();
+}
+
+// ===== LANDING PAGE GENERATOR =====
+function generateLanding() {
+  if (!state.product.title) { toast('Please save product details first'); return; }
+  if (state.product.images.length === 0) { toast('Please upload at least 1 image'); return; }
+
+  const urgency = document.getElementById('landingUrgency').value.trim();
+  const delivery = document.getElementById('landingDelivery').value.trim();
+  const benefits = state.product.benefits.split('\n').map(b => b.trim()).filter(Boolean);
+
+  const price = parseFloat(state.product.price) || 0;
+  const mrp = Math.round(price * 1.6);
+
+  const mainImg = state.product.images[0].data;
+  const otherImgs = state.product.images.slice(1);
+
+  const videoBlock = state.product.video
+    ? `<div class="video-wrap"><video src="${state.product.video.data}" autoplay muted loop playsinline></video></div>`
+    : '';
+
+  const thumbsBlock = otherImgs.length
+    ? `<div class="thumbs">${otherImgs.map(i => `<img src="${i.data}" onclick="document.getElementById('mainImg').src='${i.data}'">`).join('')}</div>`
+    : '';
+
+  const benefitsBlock = benefits.map(b => `<li><span class="check">✓</span>${escapeHtml(b)}</li>`).join('');
+
+  const html = `<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${escapeHtml(state.product.title)}</title>
+<meta name="description" content="${escapeHtml(state.product.desc.slice(0, 155))}">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;background:#fafafa;color:#1a1d29;line-height:1.6}
+.wrap{max-width:520px;margin:0 auto;background:#fff;min-height:100vh;padding-bottom:100px}
+.hero{padding:16px;background:#fff}
+.hero img{width:100%;border-radius:16px;display:block}
+.video-wrap{margin-top:12px;border-radius:16px;overflow:hidden}
+.video-wrap video{width:100%;display:block}
+.thumbs{display:flex;gap:8px;margin-top:12px;overflow-x:auto}
+.thumbs img{width:70px;height:70px;object-fit:cover;border-radius:10px;cursor:pointer;border:2px solid transparent;flex-shrink:0}
+.thumbs img:hover{border-color:#6366f1}
+.badge-bar{display:flex;gap:8px;padding:0 16px;margin-top:16px;flex-wrap:wrap}
+.badge{background:#f0f2f7;color:#1a1d29;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:600}
+.badge.urgent{background:#fef3c7;color:#92400e}
+h1{font-size:22px;font-weight:800;padding:16px;line-height:1.3;letter-spacing:-0.3px}
+.price-box{padding:0 16px 16px;display:flex;align-items:baseline;gap:10px}
+.price{font-size:32px;font-weight:800;color:#6366f1}
+.mrp{font-size:18px;color:#9ca3af;text-decoration:line-through}
+.save{background:#dcfce7;color:#166534;padding:4px 10px;border-radius:6px;font-size:12px;font-weight:700}
+.desc{padding:0 16px 16px;color:#4b5563;font-size:15px}
+.benefits{list-style:none;padding:16px;background:#f9fafb;margin:0 16px;border-radius:14px}
+.benefits li{display:flex;gap:10px;padding:8px 0;font-size:15px;align-items:flex-start}
+.check{color:#10b981;font-weight:800;flex-shrink:0}
+.delivery{margin:16px;padding:12px 16px;background:#eff6ff;border-radius:12px;font-size:14px;color:#1e40af;font-weight:600;display:flex;gap:8px;align-items:center}
+.cta-bar{position:fixed;bottom:0;left:0;right:0;background:#fff;padding:14px 16px;border-top:1px solid #e5e7eb;box-shadow:0 -4px 20px rgba(0,0,0,0.08)}
+.cta-btn{display:block;width:100%;max-width:520px;margin:0 auto;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;padding:16px;border-radius:14px;text-align:center;font-weight:700;font-size:17px;text-decoration:none;box-shadow:0 6px 20px rgba(99,102,241,0.35)}
+.cta-btn:active{transform:scale(0.98)}
+.trust{display:flex;justify-content:space-around;padding:16px;margin-top:8px;font-size:12px;color:#6b7280;text-align:center}
+.trust div{flex:1}
+.trust .ico{font-size:20px;display:block;margin-bottom:4px}
+footer{text-align:center;padding:20px;font-size:12px;color:#9ca3af}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="hero">
+    <img id="mainImg" src="${mainImg}" alt="${escapeHtml(state.product.title)}">
+    ${videoBlock}
+    ${thumbsBlock}
+  </div>
+
+  <div class="badge-bar">
+    ${urgency ? `<span class="badge urgent">🔥 ${escapeHtml(urgency)}</span>` : ''}
+    <span class="badge">✅ Cash on Delivery</span>
+    <span class="badge">🔄 Easy Returns</span>
+  </div>
+
+  <h1>${escapeHtml(state.product.title)}</h1>
+
+  <div class="price-box">
+    <span class="price">₹${price}</span>
+    <span class="mrp">₹${mrp}</span>
+    <span class="save">SAVE ₹${mrp - price}</span>
+  </div>
+
+  ${state.product.desc ? `<p class="desc">${escapeHtml(state.product.desc)}</p>` : ''}
+
+  ${benefits.length ? `<ul class="benefits">${benefitsBlock}</ul>` : ''}
+
+  <div class="delivery">🚚 ${escapeHtml(delivery)}</div>
+
+  <div class="trust">
+    <div><span class="ico">💳</span>Secure UPI Payment</div>
+    <div><span class="ico">🚚</span>Fast Delivery</div>
+    <div><span class="ico">🔄</span>Easy Returns</div>
+  </div>
+
+  <footer>© ${new Date().getFullYear()} — All rights reserved</footer>
+</div>
+
+<div class="cta-bar">
+  <a class="cta-btn" href="https://softappweber.github.io/sushantcoder/" target="_blank" rel="noopener">
+    🛒 Buy Now — ₹${price}
+  </a>
+</div>
+
+</body>
+</html>`;
+
+  document.getElementById('landingOutput').textContent = html;
+  document.getElementById('landingOutputCard').style.display = 'block';
+  document.getElementById('landingOutputCard').scrollIntoView({ behavior: 'smooth' });
+  toast('Landing page generated!');
+}
+
+// ===== WHATSAPP GENERATOR =====
+function generateWhatsApp() {
+  if (!state.product.title) { toast('Please save product details first'); return; }
+
+  const url = document.getElementById('waUrl').value.trim();
+  const upi = document.getElementById('waUpi').value.trim();
+  const title = state.product.title;
+  const price = state.product.price;
+  const benefits = state.product.benefits.split('\n').map(b => b.trim()).filter(Boolean).slice(0, 3);
+
+  const link = url || '[PASTE YOUR LANDING PAGE URL HERE]';
+
+  const ads = [
+    {
+      framework: 'AIDA',
+      label: 'Attention · Interest · Desire · Action',
+      text: `🔥 *${title}* 🔥
+
+Attention: Stop scrolling! This is the product everyone's talking about.
+
+Interest: ${benefits[0] || 'Premium quality at an unbeatable price'}.
+
+Desire: Imagine using this every single day — ${benefits[1] || 'it just works, perfectly'}.
+
+Action: 👉 Get yours for just *₹${price}* with Cash on Delivery!
+${link}
+
+💳 Pay securely via UPI: ${upi}`
+    },
+    {
+      framework: 'PAS',
+      label: 'Problem · Agitate · Solution',
+      text: `😩 *Tired of the same old problem?*
+
+Problem: You know the struggle — ${benefits[0] || 'low quality products that break fast'}.
+
+Agitate: You've wasted money before. You deserve better. You deserve something that lasts.
+
+Solution: *${title}* — ${benefits[1] || 'premium quality, honest price'}.
+
+Only *₹${price}* · Cash on Delivery available ✅
+${link}
+
+💳 Pay via UPI: ${upi}`
+    },
+    {
+      framework: 'FAB',
+      label: 'Features · Advantages · Benefits',
+      text: `✨ *${title}* ✨
+
+✅ Feature: ${benefits[0] || 'Premium build quality'}
+✅ Advantage: ${benefits[1] || 'Lasts longer than cheap alternatives'}
+✅ Benefit: ${benefits[2] || 'Save money, enjoy better performance'}
+
+💰 Only *₹${price}* · Free delivery · Cash on Delivery
+
+🛒 Order now: ${link}
+
+💳 Secure UPI: ${upi}`
+    }
+  ];
+
+  const container = document.getElementById('waOutputs');
+  container.innerHTML = ads.map((ad, i) => `
+    <div class="card">
+      <div class="flex-between mb-8">
+        <div class="card-title">📱 ${ad.framework} Framework</div>
+        <span style="font-size:12px;color:var(--text-2);">${ad.label}</span>
+      </div>
+      <div class="output-box" id="waOut${i}">${escapeHtml(ad.text)}</div>
+      <div class="btn-group mt-8">
+        <button class="btn btn-secondary btn-sm" onclick="copyText('waOut${i}')">📋 Copy Text</button>
+        <a class="btn btn-primary btn-sm" href="https://wa.me/?text=${encodeURIComponent(ad.text)}" target="_blank" rel="noopener">💬 Share on WhatsApp</a>
+      </div>
+    </div>
+  `).join('');
+
+  toast('3 WhatsApp ads generated!');
+}
+
+// ===== EMAIL GENERATOR =====
+function generateEmail() {
+  if (!state.product.title) { toast('Please save product details first'); return; }
+
+  const url = document.getElementById('emUrl').value.trim() || '[PASTE LANDING PAGE URL]';
+  const from = document.getElementById('emFrom').value.trim() || 'Sushant';
+  const title = state.product.title;
+  const price = state.product.price;
+  const desc = state.product.desc || '';
+  const benefits = state.product.benefits.split('\n').map(b => b.trim()).filter(Boolean);
+  const mainImg = state.product.images[0]?.data || '';
+
+  const html = `<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${escapeHtml(title)}</title>
+</head>
+<body style="margin:0;padding:0;background:#f5f7fb;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f5f7fb;padding:24px 12px;">
+  <tr>
+    <td align="center">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.06);">
+        <tr>
+          <td style="padding:24px;text-align:center;">
+            ${mainImg ? `<img src="${mainImg}" alt="${escapeHtml(title)}" style="width:100%;max-width:400px;border-radius:12px;display:block;margin:0 auto;">` : ''}
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0 24px 8px;">
+            <h1 style="font-size:22px;font-weight:800;color:#1a1d29;margin:0 0 12px;line-height:1.3;">${escapeHtml(title)}</h1>
+            ${desc ? `<p style="font-size:15px;color:#4b5563;line-height:1.6;margin:0 0 16px;">${escapeHtml(desc)}</p>` : ''}
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:0 24px;">
+            <div style="font-size:28px;font-weight:800;color:#6366f1;margin-bottom:16px;">₹${price}</div>
+          </td>
+        </tr>
+        ${benefits.length ? `
+        <tr>
+          <td style="padding:0 24px 16px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f9fafb;border-radius:12px;padding:16px;">
+              ${benefits.map(b => `<tr><td style="padding:6px 0;font-size:15px;color:#1a1d29;"><span style="color:#10b981;font-weight:800;margin-right:8px;">✓</span>${escapeHtml(b)}</td></tr>`).join('')}
+            </table>
+          </td>
+        </tr>` : ''}
+        <tr>
+          <td style="padding:8px 24px 24px;" align="center">
+            <a href="${url}" style="display:inline-block;background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#ffffff;text-decoration:none;padding:16px 40px;border-radius:12px;font-weight:700;font-size:16px;">🛒 Buy Now — ₹${price}</a>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:16px 24px 24px;text-align:center;border-top:1px solid #e5e7eb;">
+            <p style="font-size:13px;color:#6b7280;margin:0 0 8px;">💳 Secure UPI Payment · 🚚 Fast Delivery · 🔄 Easy Returns</p>
+            <p style="font-size:12px;color:#9ca3af;margin:0;">Sent by ${escapeHtml(from)}</p>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>`;
+
+  document.getElementById('emailOutput').textContent = html;
+  document.getElementById('emailOutputCard').style.display = 'block';
+  document.getElementById('emailOutputCard').scrollIntoView({ behavior: 'smooth' });
+  toast('Email HTML generated!');
+}
+
+// ===== UTILITIES =====
+function escapeHtml(s) {
+  if (!s) return '';
+  return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+function copyOutput(id) {
+  const el = document.getElementById(id);
+  navigator.clipboard.writeText(el.textContent).then(() => toast('Copied to clipboard!'));
+}
+
+function copyText(id) {
+  const el = document.getElementById(id);
+  navigator.clipboard.writeText(el.textContent).then(() => toast('Copied!'));
+}
+
+function downloadOutput(id, filename) {
+  const blob = new Blob([document.getElementById(id).textContent], { type: 'text/html' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(a.href);
+  toast('Downloaded ' + filename);
+}
+
+function previewOutput(id) {
+  const html = document.getElementById(id).textContent;
+  const w = window.open('', '_blank');
+  w.document.write(html);
+  w.document.close();
+}
+
+// ===== DRAFT =====
+function saveDraft() {
+  saveProductDetails();
+  localStorage.setItem('solods_landingUrl', document.getElementById('landingUrl').value);
+  localStorage.setItem('solods_waUrl', document.getElementById('waUrl').value);
+  localStorage.setItem('solods_emUrl', document.getElementById('emUrl').value);
+  toast('Draft saved to browser!');
+}
+
+function loadDraft() {
+  const p = localStorage.getItem('solods_product');
+  if (p) {
+    state.product = JSON.parse(p);
+    document.getElementById('pTitle').value = state.product.title || '';
+    document.getElementById('pPrice').value = state.product.price || '';
+    document.getElementById('pCost').value = state.product.cost || '';
+    document.getElementById('pShipping').value = state.product.shipping || '';
+    document.getElementById('pCategory').value = state.product.category || '';
+    document.getElementById('pDesc').value = state.product.desc || '';
+    document.getElementById('pBenefits').value = state.product.benefits || '';
+    renderImages();
+    renderVideo();
+  }
+  document.getElementById('landingUrl').value = localStorage.getItem('solods_landingUrl') || '';
+  document.getElementById('waUrl').value = localStorage.getItem('solods_waUrl') || '';
+  document.getElementById('emUrl').value = localStorage.getItem('solods_emUrl') || '';
+  toast('Draft loaded!');
+  renderDashboard();
+}
+
+function exportJSON() {
+  const data = {
+    product: state.product,
+    landingUrl: document.getElementById('landingUrl').value,
+    waUrl: document.getElementById('waUrl').value,
+    emUrl: document.getElementById('emUrl').value,
+    exportedAt: new Date().toISOString()
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'solods-backup-' + Date.now() + '.json';
+  a.click();
+  toast('Backup exported!');
+}
+
+function importJSON(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (data.product) {
+        state.product = data.product;
+        localStorage.setItem('solods_product', JSON.stringify(state.product));
+      }
+      if (data.landingUrl) localStorage.setItem('solods_landingUrl', data.landingUrl);
+      if (data.waUrl) localStorage.setItem('solods_waUrl', data.waUrl);
+      if (data.emUrl) localStorage.setItem('solods_emUrl', data.emUrl);
+      loadDraft();
+      toast('Backup imported!');
+    } catch (err) {
+      toast('Invalid JSON file');
+    }
+  };
+  reader.readAsText(file);
+}
+
+// ===== DASHBOARD =====
+function renderDashboard() {
+  const el = document.getElementById('dashDraft');
+  if (!state.product.title) {
+    el.innerHTML = '<div class="empty"><div class="ico">📦</div><div>No product loaded yet. Go to Import to start.</div></div>';
+    return;
+  }
+  el.innerHTML = `
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+      ${state.product.images[0] ? `<img src="${state.product.images[0].data}" style="width:64px;height:64px;object-fit:cover;border-radius:10px;">` : ''}
+      <div style="flex:1;min-width:200px;">
+        <div style="font-weight:700;font-size:15px;">${escapeHtml(state.product.title)}</div>
+        <div style="font-size:13px;color:var(--text-2);margin-top:2px;">
+          ₹${state.product.price || '—'} · ${state.product.images.length} image(s) · ${state.product.video ? '1 video' : 'no video'}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// ===== SUPPLIERS =====
+const suppliers = [
+  { name: 'DeoDap', url: 'https://deodap.in', cat: 'Wholesale', tag: 'wholesale', desc: 'India\'s largest dropshipping supplier. 10,000+ products, no MOQ.' },
+  { name: 'IndiaMART', url: 'https://www.indiamart.com', cat: 'B2B Marketplace', tag: 'b2b', desc: 'Largest B2B marketplace. Find manufacturers for any product.' },
+  { name: 'TradeIndia', url: 'https://www.tradeindia.com', cat: 'B2B Marketplace', tag: 'b2b', desc: 'Indian B2B portal with verified suppliers and manufacturers.' },
+  { name: 'Baapstore', url: 'https://baapstore.com', cat: 'Wholesale', tag: 'wholesale', desc: 'Wholesale marketplace for resellers. Low MOQ, fast shipping.' },
+  { name: 'Qikink', url: 'https://www.qikink.com', cat: 'Print on Demand', tag: 'pod', desc: 'India\'s leading POD platform. T-shirts, mugs, phone cases.' },
+  { name: 'Printrove', url: 'https://printrove.com', cat: 'Print on Demand', tag: 'pod', desc: 'POD with pan-India fulfillment. No inventory needed.' },
+  { name: 'Roposo Clout', url: 'https://clout.roposo.com', cat: 'Dropshipping', tag: 'dropship', desc: 'Dropshipping platform with 10,000+ products.' },
+  { name: 'GlowRoad', url: 'https://www.glowroad.com', cat: 'Dropshipping', tag: 'dropship', desc: 'Reselling platform by Amazon. Fashion, home, beauty.' },
+  { name: 'Meesho', url: 'https://www.meesho.com', cat: 'Dropshipping', tag: 'dropship', desc: 'Largest reselling platform in India. Zero investment.' },
+  { name: 'Shop101', url: 'https://www.shop101.com', cat: 'Dropshipping', tag: 'dropship', desc: 'Reselling app with supplier network and logistics.' },
+  { name: 'Wiishbox', url: 'https://wiishbox.com', cat: 'Dropshipping', tag: 'dropship', desc: 'Dropshipping supplier with branded packaging.' },
+  { name: 'DropWheel', url: 'https://dropwheel.com', cat: 'Dropshipping', tag: 'dropship', desc: 'Indian dropshipping supplier for e-commerce sellers.' },
+  { name: 'Zepo', url: 'https://www.zepo.in', cat: 'Dropshipping', tag: 'dropship', desc: 'Dropshipping and e-commerce fulfillment.' },
+  { name: 'GrabMore', url: 'https://www.grabmore.in', cat: 'Wholesale', tag: 'wholesale', desc: 'Wholesale marketplace for small businesses.' },
+  { name: 'Wholesalebox', url: 'https://www.wholesalebox.in', cat: 'Wholesale', tag: 'wholesale', desc: 'Online wholesale market for apparel and accessories.' },
+  { name: 'SupplyAim', url: 'https://www.supplyaim.com', cat: 'Wholesale', tag: 'wholesale', desc: 'B2B wholesale platform for retailers.' },
+  { name: 'Tolexo', url: 'https://www.tolexo.com', cat: 'B2B Marketplace', tag: 'b2b', desc: 'B2B marketplace for business supplies.' },
+  { name: 'Udaan', url: 'https://udaan.com', cat: 'B2B Marketplace', tag: 'b2b', desc: 'India\'s largest B2B trade platform.' },
+  { name: 'JioMart Partner', url: 'https://www.jiomart.com', cat: 'B2B Marketplace', tag: 'b2b', desc: 'B2B grocery and FMCG supply.' },
+  { name: 'Power Gilt', url: 'https://powergilt.com', cat: 'Dropshipping', tag: 'dropship', desc: 'Dropshipping supplier for Indian e-commerce.' },
+  { name: 'Shopyfy Suppliers', url: 'https://www.shopyfy.com', cat: 'Dropshipping', tag: 'dropship', desc: 'Dropshipping and wholesale supplier network.' },
+  { name: 'SaleHoo', url: 'https://www.salehoo.com', cat: 'Dropshipping', tag: 'dropship', desc: 'Global dropshipping directory with Indian suppliers.' }
+];
+
+function renderSuppliers() {
+  const grid = document.getElementById('supplierGrid');
+  grid.innerHTML = suppliers.map(s => `
+    <div class="supplier-card" data-search="${(s.name + ' ' + s.cat + ' ' + s.desc).toLowerCase()}">
+      <span class="supplier-tag tag-${s.tag}">${s.cat}</span>
+      <h4>${s.name}</h4>
+      <p>${s.desc}</p>
+      <a class="supplier-link" href="${s.url}" target="_blank" rel="noopener">${s.url}</a>
+    </div>
+  `).join('');
+}
+
+function filterSuppliers() {
+  const q = document.getElementById('supplierSearch').value.toLowerCase().trim();
+  document.querySelectorAll('.supplier-card').forEach(card => {
+    card.style.display = card.dataset.search.includes(q) ? '' : 'none';
+  });
+}
+
+// ===== CALCULATOR =====
+function calcProfit() {
+  const price = parseFloat(document.getElementById('calcPrice').value) || 0;
+  const cost = parseFloat(document.getElementById('calcCost').value) || 0;
+  const shipping = parseFloat(document.getElementById('calcShipping').value) || 0;
+  const packaging = parseFloat(document.getElementById('calcPackaging').value) || 0;
+  const ad = parseFloat(document.getElementById('calcAd').value) || 0;
+  const orders = parseFloat(document.getElementById('calcOrders').value) || 0;
+
+  const profit = price - cost - shipping - packaging - ad;
+  const margin = price > 0 ? (profit / price * 100) : 0;
+
+  document.getElementById('calcPerOrder').textContent = '₹' + profit.toFixed(0);
+  document.getElementById('calcDaily').textContent = '₹' + (profit * orders).toFixed(0);
+  document.getElementById('calcMonthly').textContent = '₹' + (profit * orders * 30).toFixed(0);
+  document.getElementById('calcMargin').textContent = margin.toFixed(0) + '%';
+}
+
+// ===== LIBRARY =====
+function renderLibrary() {
+  const el = document.getElementById('libraryList');
+  const drafts = JSON.parse(localStorage.getItem('solods_library') || '[]');
+  if (drafts.length === 0) {
+    el.innerHTML = '<div class="empty"><div class="ico">📚</div><div>No products saved yet.<br>Save product details from Import tab.</div></div>';
+    return;
+  }
+  el.innerHTML = drafts.map((d, i) => `
+    <div class="card">
+      <div class="flex-between">
+        <div>
+          <div style="font-weight:700;">${escapeHtml(d.title)}</div>
+          <div style="font-size:13px;color:var(--text-2);">₹${d.price} · Saved ${new Date(d.savedAt).toLocaleDateString()}</div>
+        </div>
+        <button class="btn btn-secondary btn-sm" onclick="loadFromLibrary(${i})">Load</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function loadFromLibrary(i) {
+  const drafts = JSON.parse(localStorage.getItem('solods_library') || '[]');
+  if (!drafts[i]) return;
+  state.product = drafts[i];
+  saveDraft();
+  loadDraft();
+  toast('Loaded from library!');
+}
+
+// ===== INIT =====
+renderSuppliers();
+calcProfit();
+loadDraft();
+renderDashboard();
+</script>
+</body>
+</html>
